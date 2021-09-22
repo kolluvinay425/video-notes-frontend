@@ -13,18 +13,18 @@ export default function AddVideo(props) {
       formData.append("video", file);
       formData.append("title", title);
       formData.append("description", description);
-        
+
       const response = await fetch("http://localhost:3001/videos", {
         method: "post",
         body: formData,
       });
       if (response.ok) {
-       props.fetchVideos()
+        props.fetchVideos();
       } else {
-        console.log("not sent")
+        console.log("not sent");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
       setOpen(false);
     }
@@ -81,14 +81,13 @@ export default function AddVideo(props) {
               />
             </Form.Group>
             <Button variant="secondary" onClick={() => setOpen(false)}>
-            Close
-          </Button>
-            <Button style={{marginLeft:10}}  type="submit" variant="primary" >
-            Upload
-          </Button>
+              Close
+            </Button>
+            <Button style={{ marginLeft: 10 }} type="submit" variant="primary">
+              Upload
+            </Button>
           </Form>
         </Modal.Body>
-        
       </Modal>
     </div>
   );
